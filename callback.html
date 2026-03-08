@@ -12,7 +12,7 @@
     const code = params.get("code");
     const state = params.get("state");
     if (code){
-        sessionStorage.setItem("code", code);
+//        sessionStorage.setItem("code", code);
 	let code_par = document.getElementById("code_p");
 	code_par.innerText = code;
 	}
@@ -21,7 +21,7 @@
 	code_par.innerText = "Code not found";
 	}
     if (state){
-        sessionStorage.setItem("state", state);
+//        sessionStorage.setItem("state", state);
 	let state_par = document.getElementById("state_p");
 	state_par.innerText = state;
     }
@@ -36,42 +36,6 @@
         );
         window.close();
     }
-
-// const params = new URLSearchParams(window.location.search);
-
-// const code = params.get("code");
-
-// async function exchange() {
-
-//     const verifier = sessionStorage.getItem("pkce_verifier");
-
-//     const response = await fetch(
-//         "https://dev-nwibq0byvol7tlrj.us.auth0.com/oauth/token",
-//         {
-//             method:"POST",
-//             headers:{
-//                 "Content-Type":"application/json"
-//             },
-//             body: JSON.stringify({
-//                 grant_type:"authorization_code",
-//                 client_id:"Rcw5Sgav4iJ0vYTIA9UTUXKEXZvDeMOs",
-//                 code:code,
-//                 redirect_uri:window.location.origin + "/callback.html",
-//                 code_verifier:verifier
-//             })
-//         }
-//     );
-
-//     const data = await response.json();
-
-//     sessionStorage.setItem("access_token", data.access_token);
-
-//     window.location.href = "/";
-
-// }
-
-// exchange();
-
 </script>
 
 </body>
