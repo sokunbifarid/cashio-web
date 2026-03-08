@@ -10,7 +10,7 @@
     const params = new URLSearchParams(window.location.search);
     console.log("callback called");
     const code = params.get("code");
-    const status = params.get("state");
+    const state = params.get("state");
     if (code){
         sessionStorage.setItem("code", code);
 	let code_par = document.getElementById("code_p");
