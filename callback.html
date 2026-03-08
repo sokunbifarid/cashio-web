@@ -29,6 +29,13 @@
 	let state_par = document.getElementById("state_p");
 	state_par.innerText = "State not found";
     }
+    if (window.opener) {
+        window.opener.postMessage(
+            { code: code, state: state },
+            window.location.origin
+        );
+        window.close();
+    }
 
 // const params = new URLSearchParams(window.location.search);
 
