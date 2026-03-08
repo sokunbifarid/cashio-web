@@ -5,19 +5,29 @@
 </head>
 <body>
 <p id="code_p">Code goes here</p>
-<p id="status_p">Status goes here</p>
+<p id="state_p">State goes here</p>
 <script>
     const params = new URLSearchParams(window.location.search);
     console.log("callback called");
     const code = params.get("code");
-    const status = params.get("status");
-    if (code && status){
+    const status = params.get("state");
+    if (code){
         sessionStorage.setItem("code", code);
-        sessionStorage.setItem("status", status);
 	let code_par = document.getElementById("code_p");
 	code_par.innerText = code;
-	let status_par = document.getElementById("status_p");
-	status_par.innerText = status;
+	}
+    else{
+	let code_par = document.getElementById("code_p");
+	code_par.innerText = "Code not found";
+	}
+    if (state){
+        sessionStorage.setItem("state", state);
+	let state_par = document.getElementById("state_p");
+	state_par.innerText = state;
+    }
+    else{
+	let state_par = document.getElementById("state_p");
+	state_par.innerText = "State not found;
     }
 
 // const params = new URLSearchParams(window.location.search);
