@@ -13,6 +13,10 @@
     if (code && status){
         sessionStorage.setItem("code", code);
         sessionStorage.setItem("status", status);
+	let code_par = document.getElementById("code_p");
+	code_par.innerText = code;
+	let status_par = document.getElementById("status_p");
+	status_par.innerText = status;
     }
 
 // const params = new URLSearchParams(window.location.search);
@@ -51,6 +55,7 @@
 // exchange();
 
 </script>
-
+<p id="code_p">Code goes here</p>
+<p id="status_p">Status goes here</p>
 </body>
 </html>
