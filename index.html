@@ -107,18 +107,6 @@ body {
   }
 }
 </style>
-<script>
-function lockLandscape() {
-    if (screen.orientation && screen.orientation.lock) {
-        screen.orientation.lock("landscape").catch(function(error) {
-            console.log("Orientation lock failed: ", error);
-        });
-    }
-}
-
-// You must call this after a user interaction (like clicking a "Start" button)
-window.addEventListener("click", lockLandscape);
-</script>
 	</head>
 	<body>
 		<canvas id="canvas">
