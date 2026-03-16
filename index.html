@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 		<title>cash.io</title>
 		<style>
 html, body, #canvas {
@@ -89,15 +89,10 @@ body {
 	text-align: center;
 	z-index: 1;
 }
-#canvas {
-	width: 100vw;
-	height: 100vh;
-}
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="screen-orientation" content="landscape">
+
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -116,7 +111,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":5738880,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":5738928,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
@@ -204,14 +199,6 @@ const engine = new Engine(GODOT_CONFIG);
 		}
 	} else {
 		setStatusMode('progress');
-		function forceLandscape() {
-			if (screen.orientation && screen.orientation.lock) {
-				screen.orientation.lock("landscape").catch(() => {});
-			}
-		}
-
-		window.addEventListener("load", forceLandscape);
-		window.addEventListener("click", forceLandscape);
 		engine.startGame({
 			'onProgress': function (current, total) {
 				if (current > 0 && total > 0) {
