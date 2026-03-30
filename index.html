@@ -106,6 +106,26 @@ body {
   }
 }
 </style>
+<div id="rotate-message">Please rotate your device</div>
+
+<style>
+#rotate-message {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: black;
+  color: white;
+  font-size: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (orientation: portrait) {
+  #rotate-message {
+    display: flex;
+  }
+}
+</style>
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -124,7 +144,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":4975196,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":4975308,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
