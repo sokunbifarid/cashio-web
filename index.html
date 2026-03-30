@@ -92,33 +92,74 @@ body {
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<p id="rotate-message">
-  Rotate device in landscape for better experience
-</p>
+<div id="rotate-overlay">
+  <div class="phone"></div>
+  <p>Rotate device in landscape for better experience</p>
+</div>
 
 <style>
-#rotate-message {
+#rotate-overlay {
   position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  
-  padding: 15px 25px;
-  border-radius: 10px;
-  
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  font-size: 18px;
-  text-align: center;
+  inset: 0;
+  background: #000;
+  color: #fff;
 
-  display: none; /* hidden by default */
-  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
 }
 
-/* Show ONLY in portrait mode */
+/* Show ONLY in portrait */
 @media screen and (orientation: portrait) {
-  #rotate-message {
-    display: block;
+  #rotate-overlay {
+    display: flex;
+  }
+}
+
+/* 📱 Phone icon */
+.phone {
+  width: 60px;
+  height: 100px;
+  border: 4px solid white;
+  border-radius: 12px;
+  position: relative;
+  margin-bottom: 20px;
+
+  animation: rotatePhone 1.5s ease-in-out infinite;
+}
+
+/* Small speaker notch */
+.phone::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 4px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* Rotation animation */
+@keyframes rotatePhone {
+  0% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(90deg);
+  }
+  60% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 </style>
@@ -140,7 +181,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":4927160,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":4927176,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
