@@ -92,42 +92,55 @@ body {
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<html>
-<head></head>
-<body>
-<div id="rotate-message">Please rotate your device</div>
-</body>
-</html>
-<style>
-@media screen and (orientation: portrait) {
-  body {
-    transform: rotate(90deg);
-    transform-origin: left top;
-    width: 100vh;
-    height: 100vw;
-    overflow-x: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-}
-#rotate-message {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: black;
-  color: white;
-  font-size: 24px;
-  align-items: center;
-  justify-content: center;
-}
-
-@media screen and (orientation: portrait) {
-  #rotate-message {
-    display: flex;
-  }
-}
-</style>
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <style>  
+    #portrait-warning {  
+      display: none;  
+      position: fixed;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      height: 100%;  
+      background: #fff;  
+      z-index: 9999;  
+      text-align: center;  
+      padding-top: 50%;  
+    }  
+ 
+    @media (orientation: portrait) {  
+      #main-content {  
+        display: none; /* Hide content in portrait (CSS fallback) */  
+      }  
+    }  
+  </style>  
+</head>  
+<body>  
+  <div id="portrait-warning">Please rotate your device to landscape mode!</div>  
+  <div id="main-content">Your main landscape-only content here.</div>  
+ 
+  <script>  
+    function checkOrientation() {  
+      const isLandscape = window.innerWidth > window.innerHeight;  
+      const warningEl = document.getElementById('portrait-warning');  
+      const mainContent = document.getElementById('main-content');  
+ 
+      if (!isLandscape) {  
+        warningEl.style.display = 'block';  
+        mainContent.style.display = 'none';  
+      } else {  
+        warningEl.style.display = 'none';  
+        mainContent.style.display = 'block';  
+      }  
+    }  
+ 
+    checkOrientation();  
+    window.addEventListener('resize', checkOrientation);  
+  </script>  
+</body>  
+</html> 
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -146,7 +159,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":4975308,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":4975212,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
