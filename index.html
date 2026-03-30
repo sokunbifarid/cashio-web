@@ -92,75 +92,70 @@ body {
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<div id="rotate-overlay">
+<div id="rotate-hint">
   <div class="phone"></div>
-  <p>Rotate device in landscape for better experience</p>
+  <span>Rotate device for better experience</span>
 </div>
 
 <style>
-#rotate-overlay {
+#rotate-hint {
   position: fixed;
-  inset: 0;
-  background: #000;
-  color: #fff;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 
   display: none;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
 
-  z-index: 9999;
-  text-align: center;
-  font-size: 18px;
-  padding: 20px;
+  padding: 8px 14px;
+  border-radius: 20px;
+
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 14px;
+
+  z-index: 1000;
+  pointer-events: none; /* doesn't block clicks */
 }
 
 /* Show ONLY in portrait */
 @media screen and (orientation: portrait) {
-  #rotate-overlay {
+  #rotate-hint {
     display: flex;
   }
 }
 
-/* 📱 Phone icon */
+/* 📱 Smaller phone icon */
 .phone {
-  width: 60px;
-  height: 100px;
-  border: 4px solid white;
-  border-radius: 12px;
+  width: 20px;
+  height: 34px;
+  border: 2px solid white;
+  border-radius: 5px;
   position: relative;
-  margin-bottom: 20px;
 
   animation: rotatePhone 1.5s ease-in-out infinite;
 }
 
-/* Small speaker notch */
+/* speaker notch */
 .phone::before {
   content: "";
   position: absolute;
-  top: 6px;
+  top: 2px;
   left: 50%;
   transform: translateX(-50%);
-  width: 20px;
-  height: 4px;
+  width: 8px;
+  height: 2px;
   background: white;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
-/* Rotation animation */
+/* animation */
 @keyframes rotatePhone {
-  0% {
-    transform: rotate(0deg);
-  }
-  40% {
-    transform: rotate(90deg);
-  }
-  60% {
-    transform: rotate(90deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+  0%   { transform: rotate(0deg); }
+  40%  { transform: rotate(90deg); }
+  60%  { transform: rotate(90deg); }
+  100% { transform: rotate(0deg); }
 }
 </style>
 	</head>
